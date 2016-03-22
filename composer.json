@@ -1,0 +1,26 @@
+{
+  "name": "laithshadeed/uri-parser",
+  "decription": "Sample URI parser, not meant to be used in production",
+  "keywords": [
+    "uri"
+  ],
+  "homepage": "https://github.com/laithshadeed/uri-parser",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Laith Shadeed",
+      "email": "laith.shadeed@gmail.com",
+      "homepage": "http://l3.io"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/laithshadeed/uri-parser"
+  },
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*.*",
+    "phpunit/phpunit": "5.*.*"
+  }
+}
