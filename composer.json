@@ -1,9 +1,7 @@
 {
   "name": "laithshadeed/uri-parser",
   "decription": "Sample URI parser, not meant to be used in production",
-  "keywords": [
-    "uri"
-  ],
+  "keywords": [ "uri" ],
   "homepage": "https://github.com/laithshadeed/uri-parser",
   "license": "MIT",
   "authors": [
@@ -14,6 +12,7 @@
     }
   ],
   "support": {
+    "issues": "https://github.com/laithshadeed/uri-parser/issues",
     "source": "https://github.com/laithshadeed/uri-parser"
   },
   "require": {
@@ -22,5 +21,10 @@
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*.*",
     "phpunit/phpunit": "5.*.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "LSS\\": "src/"
+    }
   }
 }
