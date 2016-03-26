@@ -16,8 +16,25 @@ namespace LSS;
 
 use LSS\Uri;
 
+/**
+ * The test class Uri
+ *
+ * @category  URI
+ * @package   UriParser
+ * @author    Laith Shadeed <laith.shadeed@gmail.com>
+ * @copyright 2016 Laith Shadeed
+ * @license   MIT https://github.com/laithshadeed/LICENSE
+ * @link      https://github.com/laithshadeed/uri-parser
+  */
+
+
 class UriTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Test scheme parsed correctly
+     *
+     * @return void
+     */
     public function testScheme()
     {
         $uri = new Uri('http://www.google.com');
@@ -25,9 +42,11 @@ class UriTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * It throws exception because scheme is immutable
+     *  Test modifying immutable the scheme property
      *
      * @return void
+     * @throws Exception\InvalidOperationException always
+     *
      * @expectedException LSS\Exception\InvalidOperationException
      */
     public function testModifyScheme()
@@ -36,5 +55,17 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $uri->scheme = 'something';
     }
 
+    /**
+     * Test parsing Arabic IDN
+     *
+     * @return void
+     */
+    public function testArabicUri()
+    {
+        $uri = new Uri('http://عربي.امارات/نحن?x=1');
+        $this->assertEquals($uri->host, 'عربي.امارات');
+        $this->assertEquals($uri->path, '/نحن');
+        $this->assertEquals($uri->query, 'x=1');
+    }
 }
 
