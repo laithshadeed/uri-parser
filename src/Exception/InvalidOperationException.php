@@ -26,11 +26,16 @@ namespace LSS\Exception;
  */
 class InvalidOperationException extends \InvalidArgumentException
 {
+
+
     /**
      * Construct InvalidOperationException
      */
     public function __construct()
     {
         parent::__construct('This operation is not allowed');
-    }
-}
+
+    }//end __construct()
+
+
+}//end class

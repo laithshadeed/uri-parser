@@ -25,11 +25,13 @@ use LSS\Uri;
  * @copyright 2016 Laith Shadeed
  * @license   MIT https://github.com/laithshadeed/LICENSE
  * @link      https://github.com/laithshadeed/uri-parser
-  */
+ */
 
 
 class UriTest extends \PHPUnit_Framework_TestCase
 {
+
+
     /**
      * Test scheme parsed correctly
      *
@@ -39,7 +41,9 @@ class UriTest extends \PHPUnit_Framework_TestCase
     {
         $uri = new Uri('http://www.google.com');
         $this->assertEquals($uri->scheme, 'http');
-    }
+
+    }//end testScheme()
+
 
     /**
      *  Test modifying immutable the scheme property
@@ -51,9 +55,11 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testModifyScheme()
     {
-        $uri = new Uri('http://www.google.com');
+        $uri         = new Uri('http://www.google.com');
         $uri->scheme = 'something';
-    }
+
+    }//end testModifyScheme()
+
 
     /**
      * Test parsing Arabic IDN
@@ -66,7 +72,9 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($uri->host, 'عربي.امارات');
         $this->assertEquals($uri->path, '/نحن');
         $this->assertEquals($uri->query, 'x=1');
-    }
+
+    }//end testArabicUri()
+
 
     /**
      * Test parsing Arabic punnycode
@@ -79,6 +87,8 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($uri->host, 'xn--ngbrx4e.xn--mgbaam7a8h');
         $this->assertEquals($uri->path, '/%D9%86%D8%AD%D9%86');
         $this->assertEquals($uri->query, '%D9%85=%D9%84');
-    }
-}
 
+    }//end testArabicPunnycode()
+
+
+}//end class

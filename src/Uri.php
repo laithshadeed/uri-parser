@@ -59,6 +59,7 @@ class Uri
      */
     protected $parts;
 
+
     /**
      * Construct ParseUriException.
      *
@@ -70,7 +71,7 @@ class Uri
     public function __construct(string $uri)
     {
         $this->uri = $uri;
-        $parts = parse_url($uri);
+        $parts     = parse_url($uri);
 
         if ($parts === false) {
             throw new Exception\ParseUriException;
@@ -79,7 +80,9 @@ class Uri
         $this->parts = $parts;
 
         return $this;
-    }
+
+    }//end __construct()
+
 
     /**
      * Accessor for all uri parts, namely:
@@ -91,10 +94,12 @@ class Uri
      */
     public function __get(string $name) : string
     {
-        if (array_key_exists($name, $this->parts)) {
+        if (array_key_exists($name, $this->parts) === true) {
             return $this->parts[$name];
         }
-    }
+
+    }//end __get()
+
 
     /**
      * Setter is not allowed. As we assume the parsed part to be immutable
@@ -108,7 +113,9 @@ class Uri
     public function __set(string $name, string $value) : string
     {
         throw new Exception\InvalidOperationException;
-    }
+
+    }//end __set()
+
 
     /**
      * Convert object to string when printed or casted to string
@@ -118,5 +125,8 @@ class Uri
     public function __toString(): string
     {
         return $this->uri;
-    }
-}
+
+    }//end __toString()
+
+
+}//end class

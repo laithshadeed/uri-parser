@@ -26,13 +26,16 @@ namespace LSS\Exception;
  */
 class ParseUriException extends \InvalidArgumentException
 {
+
+
     /**
      * Construct ParseUriException.
      */
     public function __construct()
     {
         parent::__construct('This uri can not be parsed s per parse_uri');
-    }
-}
+
+    }//end __construct()
 
 
+}//end class
