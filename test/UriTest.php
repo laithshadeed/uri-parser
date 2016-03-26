@@ -67,5 +67,18 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($uri->path, '/نحن');
         $this->assertEquals($uri->query, 'x=1');
     }
+
+    /**
+     * Test parsing Arabic punnycode
+     *
+     * @return void
+     */
+    public function testArabicPunnycode()
+    {
+        $uri = new Uri('http://xn--ngbrx4e.xn--mgbaam7a8h/%D9%86%D8%AD%D9%86?%D9%85=%D9%84');
+        $this->assertEquals($uri->host, 'xn--ngbrx4e.xn--mgbaam7a8h');
+        $this->assertEquals($uri->path, '/%D9%86%D8%AD%D9%86');
+        $this->assertEquals($uri->query, '%D9%85=%D9%84');
+    }
 }
 
