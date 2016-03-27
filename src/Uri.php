@@ -12,25 +12,25 @@
  * @link      https://github.com/laithshadeed/uri-parser
  */
 
-namespace LSS;
+namespace Http;
 
 /**
  * The main class for parsing uris
  *
  * Example:
  * <code>
- *  $uri = new URI('http://www.my-domain/contact?me=1');
- *  echo $uri->host;
- *  echo $uri->scheme;
- *  echo $uri->path;
- *  echo $uri->query;
+ * $uri = new URI('http://www.my-domain/contact?me=1');
+ * echo $uri->host;
+ * echo $uri->scheme;
+ * echo $uri->path;
+ * echo $uri->query;
  * </code>
  *
  * @category  URI
  * @package   UriParser
  * @author    Laith Shadeed <laith.shadeed@gmail.com>
  * @copyright 2016 Laith Shadeed
- * @license   MIT https://github.com/laithshadeed/LICENSE
+ * @license   https://github.com/laithshadeed/LICENSE MIT
  * @link      https://github.com/laithshadeed/uri-parser
  *
  * @property-read string $scheme
@@ -110,7 +110,7 @@ class Uri
      * @throws Exception\InvalidOperationException if called
      * @return void
      */
-    public function __set(string $name, string $value) : string
+    public function __set(string $name, string $value)
     {
         throw new Exception\InvalidOperationException;
 
@@ -122,7 +122,7 @@ class Uri
      *
      * @return string The value of $uri property
      */
-    public function __toString(): string
+    public function __toString() : string
     {
         return $this->uri;
 

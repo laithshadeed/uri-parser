@@ -12,7 +12,7 @@
  * @link      https://github.com/laithshadeed/uri-parser
  */
 
-namespace LSS\Exception;
+namespace Http\Exception;
 
 /**
  * This exception will be thrown when parse_uri failed
@@ -21,7 +21,7 @@ namespace LSS\Exception;
  * @package   UriParser
  * @author    Laith Shadeed <laith.shadeed@gmail.com>
  * @copyright 2016 Laith Shadeed
- * @license   MIT https://github.com/laithshadeed/LICENSE
+ * @license   https://github.com/laithshadeed/LICENSE MIT
  * @link      https://github.com/laithshadeed/uri-parser
  */
 class ParseUriException extends \InvalidArgumentException

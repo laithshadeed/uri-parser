@@ -12,9 +12,9 @@
  * @link      https://github.com/laithshadeed/uri-parser
  */
 
-namespace LSS;
+namespace Http;
 
-use LSS\Uri;
+use Http\Uri;
 
 /**
  * The test class Uri
@@ -23,7 +23,7 @@ use LSS\Uri;
  * @package   UriParser
  * @author    Laith Shadeed <laith.shadeed@gmail.com>
  * @copyright 2016 Laith Shadeed
- * @license   MIT https://github.com/laithshadeed/LICENSE
+ * @license   https://github.com/laithshadeed/LICENSE MIT
  * @link      https://github.com/laithshadeed/uri-parser
  */
 
@@ -51,7 +51,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      * @return void
      * @throws Exception\InvalidOperationException always
      *
-     * @expectedException LSS\Exception\InvalidOperationException
+     * @expectedException Http\Exception\InvalidOperationException
      */
     public function testModifyScheme()
     {
