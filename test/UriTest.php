@@ -1,4 +1,4 @@
-<?hh // strict
+<?hh
 /**
  *  URI Parser as per RFC3986
  *
@@ -27,8 +27,6 @@ use Http\Uri;
  * @link      https://github.com/laithshadeed/uri-parser
  */
 
-/* HH_IGNORE_ERROR[2049] PHPUnit is not hackified */
-/* HH_IGNORE_ERROR[4123] PHPUnit is not hackified */
 class UriTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -54,7 +52,13 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testModifyScheme() : void
     {
-        $this->expectException(Exception\InvalidOperationException::class);
+        if (method_exists($this, 'expectException') === true) {
+            $this->expectException(
+                'Http\Exception\InvalidOperationException');
+        } else {
+            $this->setExpectedException(
+                'Http\Exception\InvalidOperationException');
+        }
 
         $uri         = new Uri('http://www.google.com');
         $uri->scheme = 'something';
