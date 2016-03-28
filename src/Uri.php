@@ -1,4 +1,4 @@
-<?php
+<?hh // strict
 /**
  *  URI Parser as per RFC3986
  *
@@ -8,8 +8,8 @@
  * @package   UriParser
  * @author    Laith Shadeed <laith.shadeed@gmail.com>
  * @copyright 2016 Laith Shadeed
- * @license   MIT https://github.com/laithshadeed/LICENSE
  * @link      https://github.com/laithshadeed/uri-parser
+ * @license   MIT https://github.com/laithshadeed/LICENSE
  */
 
 namespace Http;
@@ -32,15 +32,6 @@ namespace Http;
  * @copyright 2016 Laith Shadeed
  * @license   https://github.com/laithshadeed/LICENSE MIT
  * @link      https://github.com/laithshadeed/uri-parser
- *
- * @property-read string $scheme
- * @property-read string $host
- * @property-read string $port
- * @property-read string $user
- * @property-read string $pass
- * @property-read string $path
- * @property-read string $query
- * @property-read string $fragment
  */
 
 class Uri
@@ -48,17 +39,72 @@ class Uri
     /**
      * The raw uri pass in the contructor
      *
-     * @var string|null
+     * @var string
      */
-    protected $uri = null;
+    protected string $uri = '';
 
     /**
      * The associated array of uri parts
      *
      * @var array<string, string>|null
      */
-    protected $parts;
+    protected Map<string, string> $parts;
 
+    /**
+     * The uri scheme
+     *
+     * @var string
+     */
+    protected string $scheme = '';
+
+    /**
+     * The uri host
+     *
+     * @var string
+     */
+    protected string $host = '';
+
+    /**
+     * The uri port
+     *
+     * @var string
+     */
+    protected string $port = '';
+
+    /**
+     * The uri user
+     *
+     * @var string
+     */
+    protected string $user = '';
+
+    /**
+     * The uri pass
+     *
+     * @var string
+     */
+    protected string $pass = '';
+
+    /**
+     * The uri path
+     *
+     * @var string
+     */
+    protected string $path = '';
+
+    /**
+     * The uri query
+     *
+     * @var string
+     */
+    protected string $query = '';
+
+    /**
+     * The uri fragement
+     *
+     * @var string
+     */
+    protected string $fragment = '';
 
     /**
      * Construct ParseUriException.
@@ -66,7 +112,6 @@ class Uri
      * @param string $uri String uri to be parsed.
      *
      * @throws Exception\ParseUriException if parse_uri failed to parse
-     * @todo   support lower version of PHP
      */
     public function __construct(string $uri)
     {
@@ -74,13 +119,10 @@ class Uri
         $parts     = parse_url($uri);
 
         if ($parts === false) {
-            throw new Exception\ParseUriException;
+            throw new Exception\ParseUriException();
         }
 
         $this->parts = $parts;
-
-        return $this;
-
     }//end __construct()
 
 
@@ -92,7 +134,7 @@ class Uri
      *
      * @return string|null The value of uri part
      */
-    public function __get(string $name) : string
+    public function __get(string $name) : mixed
     {
         if (array_key_exists($name, $this->parts) === true) {
             return $this->parts[$name];
@@ -110,9 +152,9 @@ class Uri
      * @throws Exception\InvalidOperationException if called
      * @return void
      */
-    public function __set(string $name, string $value)
+    public function __set(string $name, string $value) : void
     {
-        throw new Exception\InvalidOperationException;
+        throw new Exception\InvalidOperationException();
 
     }//end __set()
 

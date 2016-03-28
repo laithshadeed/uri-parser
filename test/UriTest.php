@@ -1,4 +1,4 @@
-<?php
+<?hh // strict
 /**
  *  URI Parser as per RFC3986
  *
@@ -27,7 +27,8 @@ use Http\Uri;
  * @link      https://github.com/laithshadeed/uri-parser
  */
 
-
+/* HH_IGNORE_ERROR[2049] PHPUnit is not hackified */
+/* HH_IGNORE_ERROR[4123] PHPUnit is not hackified */
 class UriTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -37,7 +38,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testScheme()
+    public function testScheme() : void
     {
         $uri = new Uri('http://www.google.com');
         $this->assertEquals($uri->scheme, 'http');
@@ -53,7 +54,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      *
      * @expectedException Http\Exception\InvalidOperationException
      */
-    public function testModifyScheme()
+    public function testModifyScheme() : void
     {
         $uri         = new Uri('http://www.google.com');
         $uri->scheme = 'something';
@@ -66,7 +67,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testArabicUri()
+    public function testArabicUri() : void
     {
         $uri = new Uri('http://عربي.امارات/نحن?x=1');
         $this->assertEquals($uri->host, 'عربي.امارات');
@@ -81,7 +82,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testArabicPunnycode()
+    public function testArabicPunnycode() : void
     {
         $uri = new Uri('http://xn--ngbrx4e.xn--mgbaam7a8h/%D9%86%D8%AD%D9%86?%D9%85=%D9%84');
         $this->assertEquals($uri->host, 'xn--ngbrx4e.xn--mgbaam7a8h');

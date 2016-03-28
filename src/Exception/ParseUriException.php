@@ -1,4 +1,4 @@
-<?php
+<?hh // strict
 /**
  *  URI Parser as per RFC3986
  *

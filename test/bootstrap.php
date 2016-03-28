@@ -1,4 +1,4 @@
-<?php
+<?hh // strict
 /**
  *  URI Parser as per RFC3986
  *
@@ -11,7 +11,5 @@
  * @license   MIT https://github.com/laithshadeed/LICENSE
  * @link      https://github.com/laithshadeed/uri-parser
  */
-
-error_reporting(E_ALL | E_STRICT);
 
 require __DIR__.'/../vendor/autoload.php';
