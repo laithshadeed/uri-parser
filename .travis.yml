@@ -6,15 +6,10 @@ php:
   - '7.0'
   - nightly
   - hhvm
-env:
-  TRANSPILE=true
 matrix:
   fast_finish: true
   allow_failures:
     - php: nightly
-  exclude:
-    - php: hhvm
-      env: TRANSPILE=false
 
 install: composer install
-before_script: $TRANSPILE && ./transpile && cd php
+before_script: ./transpile
