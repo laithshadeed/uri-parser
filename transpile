@@ -9,7 +9,6 @@ if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then
     cp -r ./vendor ./php/
     cp ./hack_test_bootstrap.php ./php/test/bootstrap.php
     cp ./phpunit.xml ./php/
-    cd ./php
 else
     true
 fi

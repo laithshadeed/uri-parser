@@ -13,3 +13,4 @@ matrix:
 
 install: composer install
 before_script: ./transpile
+script: cd php; phpunit
