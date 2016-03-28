@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -ev
 rm -rf ./php/
 h2tp ./src ./php/src
 h2tp ./test ./php/test
