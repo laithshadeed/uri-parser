@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+rm -rf ./php/
+h2tp ./src ./php/src
+h2tp ./test ./php/test
+cp -r /usr/share/hhvm/hack/hacklib ./php/
+cp -r ./vendor ./php/
+cp ./hack_test_bootstrap.php ./php/test/bootstrap.php
+cp ./phpunit.xml ./php/

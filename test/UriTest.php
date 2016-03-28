@@ -51,11 +51,11 @@ class UriTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      * @throws Exception\InvalidOperationException always
-     *
-     * @expectedException Http\Exception\InvalidOperationException
      */
     public function testModifyScheme() : void
     {
+        $this->expectException(Exception\InvalidOperationException::class);
+
         $uri         = new Uri('http://www.google.com');
         $uri->scheme = 'something';
 
