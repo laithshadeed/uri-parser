@@ -1,4 +1,8 @@
 [![Build Status](https://travis-ci.org/laithshadeed/uri-parser.svg?branch=master)](https://travis-ci.org/laithshadeed/uri-parser)
+
+```
+An attempt in 2016 to explore Hack lang and revisit PHP & its ecosystem after last time I used it in 2014.
+```
 ## uri-parser
 Sample URI Parser - Not meant to be used in production
 
